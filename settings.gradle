@@ -1,0 +1,4 @@
+rootProject.name='Pomodoro - Tomato Timer'
+include ':app'
+include ':domain'
+include ':data'
