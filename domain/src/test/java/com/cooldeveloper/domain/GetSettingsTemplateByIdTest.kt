@@ -1,6 +1,6 @@
 package com.cooldeveloper.domain
 
-import com.cooldeveloper.domain.exception.SpaceNotesError
+import com.cooldeveloper.domain.exception.SettingsError
 import com.cooldeveloper.domain.repository.ISettingsTemplateRepository
 import com.cooldeveloper.domain.usecases.GetSettingsTemplate
 import io.mockk.coEvery
@@ -37,7 +37,7 @@ class GetSettingsTemplateByIdTest {
     fun `On Get Settings Template By Id Error`() = runBlockingTest {
         val TEST_ID = getSettingsTemplate().id
 
-        coEvery { repo.getSettingsTemplateById(TEST_ID) } returns ResultWrapper.build { throw SpaceNotesError.SettingsTemplateException }
+        coEvery { repo.getSettingsTemplateById(TEST_ID) } returns ResultWrapper.build { throw SettingsError.SettingsTemplateException }
 
         val result = useCase.execute(TEST_ID)
         assert(result is ResultWrapper.Error)

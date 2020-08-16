@@ -6,6 +6,7 @@ import com.cooldeveloper.data.datamodel.AnonymousRoomSettings
 @Dao
 interface IAnonymousSettingsDao {
 
+    // Get settings by id
     @Query("SELECT * FROM anonymous_settings WHERE id = :id")
     fun getSettingsById(id: Int): AnonymousRoomSettings
 
